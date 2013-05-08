@@ -1,0 +1,73 @@
+<project name="ConnectToDoor_Automation_Code" default="runAutomation" basedir="." >
+
+    <description>
+        simple example build file for running automation from terminal
+    </description>
+	
+	<property
+	    name="UDID"
+	    value="1fd2c4bdcef7a336f6853398255a0f05fc149fba"/>
+	<property 
+		name="traceTemplate" 
+		value="/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate"/>
+	<property
+	    name="appHash"
+	    value="DA5BD0CB-EF81-414E-8608-BAFCF896C9DD"/>
+	
+	<property
+	    name="emulatorAppDirectory"
+	    value="/Users/maretska/Library/Application Support/iPhone Simulator/6.0/Applications"/>
+	<property
+	    name="appName"
+	    value="ConnectToDoor"/>
+	<property
+	    name="testScript"
+	    value="/Library/WebServer/Documents/workspace/workspace2/Automation_ConnectToDoor/MainTest.js"/>
+	
+	<property
+	    name="subCommand"
+	    value=" -t ${traceTemplate} ${emulatorAppDirectory}/${appHash}/${appName}.app -e UIASCRIPT ${testScript}">
+	</property>
+	
+	<!-- Open the target tag below to execute the Automation from device. Don't forget to close it when automate 
+	the app on emulator. --> 
+	<!-- <target name="runAutomation">
+	    <exec executable="instruments">
+	        <arg value="-w"/>
+	        <arg value="${UDID}"/>
+	        <arg value="-t"/>
+	        <arg value="${traceTemplate}"/>
+	        <arg value="${appName}"/>
+	        <arg value="-e"/>
+	        <arg value="UIASCRIPT"/>
+	        <arg value="${testScript}"/>
+	    </exec>
+	</target> -->
+	
+	<!-- Open the target tag below to execute the Automation from emulator. Don't forget to close it when automate 
+	the app on device. -->
+	<target name="runAutomation">
+	    <exec executable="instruments">
+	        <arg value="-t"/>
+	        <arg value="${traceTemplate}"/>
+	        <arg value="${emulatorAppDirectory}/${appHash}/${appName}.app"/>
+	        <arg value="-e"/>
+	        <arg value="UIASCRIPT"/>
+	        <arg value="${testScript}"/>
+	    </exec> 
+	</target>
+	
+	
+	
+	<!-- <echo>
+	    traceTemplate property value :${traceTemplate}
+	</echo> -->
+	<!-- <echo>
+	    target runAutomation :${traceTemplate}
+	    target runAutomation :${emulatorAppDirectory}/${appHash}/${appName}.app
+	    target runAutomation :${testScript}
+	</echo> -->
+	
+	
+
+</project>
