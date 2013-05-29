@@ -48,6 +48,7 @@ public class Athendance extends ActivityInstrumentationTestCase2<LoginActivity> 
 	       }
 	       
 	       public void testProfile(){
+	    	   //buddy ganteng
 	    	   solo.clickOnButton(0);
 	    	   solo.clickOnButton("Voucher");
 	    	   actual = solo.searchButton("Attendace");
