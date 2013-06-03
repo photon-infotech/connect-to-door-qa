@@ -59,27 +59,27 @@ public class Athendance extends ActivityInstrumentationTestCase2<LoginActivity> 
 	    	   solo.waitForActivity("km", 2000);
 	    	  System.out.println("Login Success");
 
-//	      	   Test Profile in App
-	    	   // tap Profile
-	    	   solo.clickOnImage(3);
-	    	   solo.waitForActivity("km", 2000);
-	    	   // tap attendance
-	    	   solo.clickOnImage(1);
-	    	   solo.waitForActivity("km", 2000);
-	    	   System.out.println("Test Profile Success");
-	    	   
-//			   Test Voucher     
-//			   tap Voucher
-	    	   solo.clickOnImage(4);
-	    	   solo.waitForActivity("km", 2000);
-	    	   // tap back
-//	    	   solo.getCurrentActivity().findViewById(R.id.);
-	    	   solo.clickOnButton("Back");
-//	    	   solo.clickOnButton(0);
-//	    	   solo.clickOnImage(0);
-	    	   solo.waitForActivity("km", 3000);
-	    	   System.out.println("Test Voucher Success");
-	    	   
+////	      	   Test Profile in App
+//	    	   // tap Profile
+//	    	   solo.clickOnImage(3);
+//	    	   solo.waitForActivity("km", 2000);
+//	    	   // tap attendance
+//	    	   solo.clickOnImage(1);
+//	    	   solo.waitForActivity("km", 2000);
+//	    	   System.out.println("Test Profile Success");
+//	    	   
+////			   Test Voucher     
+////			   tap Voucher
+//	    	   solo.clickOnImage(4);
+//	    	   solo.waitForActivity("km", 2000);
+//	    	   // tap back
+////	    	   solo.getCurrentActivity().findViewById(R.id.);
+//	    	   solo.clickOnImageButton(1);
+////	    	   solo.clickOnButton(0);
+////	    	   solo.clickOnImage(0);
+//	    	   solo.waitForActivity("km", 3000);
+//	    	   System.out.println("Test Voucher Success");
+//	    	   
 ////			   Testing Daily Attendance
 //	    	   // Tap daily Attendance
 //	    	   solo.clickOnImage(5);
@@ -90,20 +90,33 @@ public class Athendance extends ActivityInstrumentationTestCase2<LoginActivity> 
 //	    	   System.out.println("Testing Daily Success");
 //	    	   
 	    	   
-////			   Testing Attendance List
-//	    	   // Tap Attendance List
-//	    	   solo.clickOnImage(6);
-//	    	   solo.waitForActivity("km", 3000);
-//	      
+//			   Testing Attendance List
+	    	   // Tap Attendance List
+	    	   solo.clickOnImage(6);
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.clickOnImage(1);
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.setDatePicker(0, 2013, 4, 1);
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.clickOnButton("Set");
+	    	   solo.waitForText("Attendance List");
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.clickOnImage(2);
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.setDatePicker(0, 2013, 4, 30);
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.clickOnButton("Set");
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.waitForText("Attendance List");
+	    	   solo.waitForActivity("km", 1000);
+	    	   solo.pressSpinnerItem(0,0);
+//	    	   solo.waitForActivity("km", 1000);
+//	    	   solo.getCurrentActivity().findViewById(R.id.searchButton);
+//	    	   solo.clickOnButton("Search");
+//	    	   solo.waitForActivity("km", 1000);
+	    	   solo.waitForText("Attendance List");
+//	    	   solo.waitForActivity("km", 1000);
+	    	   solo.clickOnImage(3);
+	      
 	       }
-//	       
-//	       public void testProfile(){
-//	    	   //buddy ganteng
-//	    	   solo.clickOnButton(0);
-//	    	   solo.clickOnImageButton(0);
-//	    	   solo.clickOnButton("Voucher");
-//	    	   actual = solo.searchButton("Attendace");
-//	    	   assertEquals(expected, actual);
-//	       }
-//	       
 }
