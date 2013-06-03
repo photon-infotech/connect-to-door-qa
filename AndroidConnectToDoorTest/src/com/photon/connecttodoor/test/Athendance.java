@@ -1,6 +1,7 @@
 package com.photon.connecttodoor.test;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.widget.Button;
 
 import com.jayway.android.robotium.solo.Solo;
 import com.photon.connecttodoor.LoginActivity;
@@ -11,7 +12,7 @@ public class Athendance extends ActivityInstrumentationTestCase2<LoginActivity> 
 	private Solo solo;
 	boolean expected = true;
 	   boolean actual;
-	
+	public Button backbutton;
 	public Athendance() {
 	               super(LoginActivity.class);
 
@@ -22,7 +23,7 @@ public class Athendance extends ActivityInstrumentationTestCase2<LoginActivity> 
 
 	               super.setUp();
 	               solo = new Solo(getInstrumentation(), getActivity());
-
+	               backbutton = (Button)solo.getCurrentActivity().findViewById(R.id.back_button);
 	       }
 
 	       @Override
@@ -41,18 +42,68 @@ public class Athendance extends ActivityInstrumentationTestCase2<LoginActivity> 
 	       
 	       
 	       public void testLoginFb(){
+//			   Open App	    	   
+	    	   // tap FB
 	    	   solo.clickOnButton(0);
-	    	   actual = solo.searchText("Welcome");
-	    	   assertEquals(expected, actual);
+	    	   solo.waitForActivity("km", 2000);
 	    	   
-	       }
-	       
-	       public void testProfile(){
-	    	   //buddy ganteng
-	    	   solo.clickOnButton(0);
-	    	   solo.clickOnButton("Voucher");
-	    	   actual = solo.searchButton("Attendace");
+	    	   actual = solo.searchText("Employee ID", true);
+	    	   solo.waitForActivity("km", 2000);
 	    	   assertEquals(expected, actual);
+	    	   solo.waitForActivity("km", 2000);
+	    	   // input employee ID
+	    	   solo.enterText(0, "i0068");
+	    	   solo.waitForActivity("km", 2000);
+	    	   // tap continue
+	    	   solo.clickOnButton(0);
+	    	   solo.waitForActivity("km", 2000);
+	    	  System.out.println("Login Success");
+
+//	      	   Test Profile in App
+	    	   // tap Profile
+	    	   solo.clickOnImage(3);
+	    	   solo.waitForActivity("km", 2000);
+	    	   // tap attendance
+	    	   solo.clickOnImage(1);
+	    	   solo.waitForActivity("km", 2000);
+	    	   System.out.println("Test Profile Success");
+	    	   
+//			   Test Voucher     
+//			   tap Voucher
+	    	   solo.clickOnImage(4);
+	    	   solo.waitForActivity("km", 2000);
+	    	   // tap back
+//	    	   solo.getCurrentActivity().findViewById(R.id.);
+	    	   solo.clickOnButton("Back");
+//	    	   solo.clickOnButton(0);
+//	    	   solo.clickOnImage(0);
+	    	   solo.waitForActivity("km", 3000);
+	    	   System.out.println("Test Voucher Success");
+	    	   
+////			   Testing Daily Attendance
+//	    	   // Tap daily Attendance
+//	    	   solo.clickOnImage(5);
+//	    	   solo.waitForActivity("km", 3000);
+//	    	   solo.getCurrentActivity().findViewById(R.id.backButton);
+////	    	   solo.clickOnButton(1);
+//	    	   solo.waitForActivity("km", 3000);
+//	    	   System.out.println("Testing Daily Success");
+//	    	   
+	    	   
+////			   Testing Attendance List
+//	    	   // Tap Attendance List
+//	    	   solo.clickOnImage(6);
+//	    	   solo.waitForActivity("km", 3000);
+//	      
 	       }
-	       
+//	       
+//	       public void testProfile(){
+//	    	   //buddy ganteng
+//	    	   solo.clickOnButton(0);
+//	    	   solo.clickOnImageButton(0);
+//	    	   solo.clickOnButton("Voucher");
+//	    	   actual = solo.searchButton("Attendace");
+//	    	   assertEquals(expected, actual);
+//	       }
+//	       
 }
